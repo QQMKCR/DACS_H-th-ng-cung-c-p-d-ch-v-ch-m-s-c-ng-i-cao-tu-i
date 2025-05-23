@@ -1,0 +1,195 @@
+body {
+  padding: 0;
+  background-color: #cbe2fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Section */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.table-title {
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Table Container */
+.table-container {
+  background-color: #1666A8,
+;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  overflow: auto;
+}
+
+/* Table Styling */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  table-layout: auto; /* Giữ auto để tự điều chỉnh kích thước cột dựa trên nội dung dài nhất */
+  border: 1px solid #e2e8f0;
+}
+
+/* Table Head */
+.data-table thead {
+  background: linear-gradient(135deg, #63b6f1d1, hsla(217, 78%, 46%, 0.659));
+  color: #1666A8,
+;
+}
+
+.data-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  position: relative;
+  border: 1px solid #e2e8f0;
+  min-width: 100px; /* Đảm bảo cột không quá hẹp */
+  white-space: normal; /* Cho phép xuống dòng nếu nội dung dài */
+}
+
+/* Loại bỏ pseudo-element không cần thiết nếu nội dung dài */
+.data-table th:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.data-table th:last-child:after {
+  display: none;
+}
+
+/* Table Body */
+.data-table td {
+  padding: 0.75rem 1rem ;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+  white-space: normal; /* Cho phép nội dung xuống dòng để hiển thị đầy đủ */
+  overflow: visible; /* Đảm bảo nội dung không bị cắt */
+  text-overflow: initial; /* Bỏ cắt chữ để hiển thị toàn bộ nội dung */
+  transition: background-color 0.2s ease;
+  min-width: 100px; /* Đảm bảo cột không quá hẹp */
+  background-color: #f9fafb;
+}
+
+/* Loại bỏ các quy tắc border riêng lẻ vì đã áp dụng border chung */
+.data-table th, 
+.data-table td {
+  border-right: none;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  border-right: none;
+}
+
+/* Action Buttons */
+.action-cell {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-action:hover {
+  transform: translateY(-1px);
+}
+
+.btn-view {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #2563eb;
+}
+
+.btn-edit {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #d97706;
+}
+
+.btn-delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
+
+.btn-download {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #059669;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-inactive {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Hover Effect */
+.data-table tbody tr:hover td {
+  background-color: #f9fafb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem 0.75rem;
+    min-width: 80px; /* Giảm min-width cho màn hình nhỏ */
+  }
+
+  .btn-action {
+    padding: 0.3rem 0.5rem;
+  }
+}
